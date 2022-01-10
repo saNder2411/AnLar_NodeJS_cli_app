@@ -1,5 +1,5 @@
-import chalk from 'chalk';
-import dedent from 'dedent-js';
+import chalk from 'chalk'
+import dedent from 'dedent-js'
 
 export const printError = (error) => {
   console.log(`${chalk.bgRed(' ERROR ')}: ${error}`)
@@ -18,4 +18,14 @@ export const printHelp = () => {
     -h           for display help
   `
   )
+}
+
+export const printForecast = (forecast, icon) => {
+  console.log(dedent`
+  ${chalk.bgMagentaBright(' WEATHER ')} Weather in the city ${forecast.name} ${forecast.sys.country}
+  ${icon}  ${forecast.weather[0].description}
+  Temp: ${forecast.main.temp}. Feels like: ${forecast.main.feels_like}
+  Humidity: ${forecast.main.humidity}%
+  Windy: ${forecast.wind.speed}
+  `)
 }

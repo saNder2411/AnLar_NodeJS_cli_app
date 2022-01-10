@@ -4,6 +4,8 @@ import { join } from 'path'
 
 const filePath = join(homedir(), 'weather-data.json')
 
+export const TokenDictionary = { token: 'token', city: 'city' }
+
 export const saveValueByKey = async (key, value) => {
   if (await isExist(filePath)) {
     const file = await readFile(filePath)
